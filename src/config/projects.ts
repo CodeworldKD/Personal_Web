@@ -19,18 +19,18 @@ export const awardsHeadLine = "Awards & Honors"
 export const awardsIntro = "Recognition for academic and professional achievements."
 
 export const awards: Array<ActivityItemType> = [
-  {
-    name: 'Outstanding Teacher Award',
-    description: '',
-    date: '2024',
-    location: 'SCLS, Shanghai',
-  },
-  {
-    name: 'Zhui Ying Award',
-    description: '',
-    date: '2023',
-    location: 'Qingpu, Shanghai',
-  },
+  // {
+  //   name: 'Outstanding Teacher Award',
+  //   description: '',
+  //   date: '2024',
+  //   location: 'SCLS, Shanghai',
+  // },
+  // {
+  //   name: 'Zhui Ying Award',
+  //   description: '',
+  //   date: '2023',
+  //   location: 'Qingpu, Shanghai',
+  // },
 ]
 
 // Research & Projects

@@ -3,19 +3,19 @@ export * from './education'
 export * from './career'
 
 // personal info
-export const name = 'Derek Hu'
-export const headline = 'Teacher at Shanghai Soong Ching Ling School.'
+export const name = '凌睿鹏'
+export const headline = '清华大学 硕士二年级.'
 export const introduction =
-  "Coucou Les Amis! My name is Derek Hu. I'm from Hubei and an alumnus of BUPT, UChicago, and Tsinghua. I’ve been teaching Computer Science at SCLS since 2020."
-export const email = 'tong.hu@scls-sh.org'
-export const githubUsername = 'derekhut'
+  "欢迎来到我的主页！我叫凌睿鹏。我来自广东，我是华南理工大学本科，清华在读硕士。自2023年以来，我一直在cv领域学习。"
+export const email = 'rpling@qq.com'
+export const githubUsername = 'CodeworldKD'
 
 // about page
 export const aboutMeHeadline = 'Who Are You and Why Should I Care?'
 export const aboutParagraphs = [
-  "Coucou Les Amis! My name is Derek Hu. I'm from Hubei and an alumnus of BUPT, UChicago, and Tsinghua. I’ve been teaching Computer Science at SCLS since 2020.",
-  'Currently I am working on a new course called AI Camp, an innovative course where high school students create real-world products and startups while exploring the frontiers of AI.',
-  "I started this blog to share the insights I learn every day. Most blogs focus on education in Artificial Intelligence and general computer science, while others share the life lessons I've learned.",
+  "我叫凌睿鹏。我来自广东，我是华南理工大学本科，清华在读硕士。自2023年以来，我一直在cv领域学习。",
+  '目前，我正在学习Java开发和寻求推荐系统的算法实习机会。',
+  "我创建了这个博客，分享我每天学到的见解。大多数博客都专注于人工智能和一般计算机科学的学习日志，而其他博客则分享我学到的生活知识。",
 ]
 
 // blog

@@ -2,6 +2,7 @@
 
 import { ICloud } from "react-icon-cloud";
 import dynamic from 'next/dynamic';
+import { useEffect, useState } from 'react';
 
 // 定义云属性
 export const cloudProps: Omit<ICloud, "children"> = {
@@ -44,5 +45,15 @@ const DynamicIconCloud = dynamic(
 
 // 导出主组件
 export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
+  const [isBrowser, setIsBrowser] = useState(false);
+  
+  useEffect(() => {
+    setIsBrowser(true);
+  }, []);
+  
+  if (!isBrowser) {
+    return null; // 在服务器端渲染时不渲染任何内容
+  }
+  
   return <DynamicIconCloud iconSlugs={iconSlugs} />;
 }

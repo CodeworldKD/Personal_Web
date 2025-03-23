@@ -36,19 +36,24 @@ const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
 // 实际的实现组件
 export default function IconCloudImpl({ iconSlugs }: DynamicCloudProps) {
   const [data, setData] = useState<IconData | null>(null);
-  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
+    setMounted(true);
     fetchSimpleIcons({ slugs: iconSlugs }).then(setData);
   }, [iconSlugs]);
 
   const renderedIcons = useMemo(() => {
-    if (!data) return null;
+    if (!data || !mounted) return null;
 
     return Object.values(data.simpleIcons).map((icon) =>
-      renderCustomIcon(icon, theme || "light"),
+      renderCustomIcon(icon, resolvedTheme || "light"),
     );
-  }, [data, theme]);
+  }, [data, resolvedTheme, mounted]);
+
+  // 如果组件还没有挂载，返回 null
+  if (!mounted) return null;
 
   return (
     // @ts-ignore

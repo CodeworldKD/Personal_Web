@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useEffect, useRef } from 'react'
+import { createContext, useEffect, useRef, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { ThemeProvider, useTheme } from 'next-themes'
 
@@ -16,8 +16,15 @@ function usePrevious<T>(value: T) {
 
 function ThemeWatcher() {
   let { resolvedTheme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
+    if (!mounted) return
+    
     let media = window.matchMedia('(prefers-color-scheme: dark)')
 
     function onMediaChange() {
@@ -33,7 +40,7 @@ function ThemeWatcher() {
     return () => {
       media.removeEventListener('change', onMediaChange)
     }
-  }, [resolvedTheme, setTheme])
+  }, [resolvedTheme, setTheme, mounted])
 
   return null
 }
@@ -43,6 +50,11 @@ export const AppContext = createContext<{ previousPathname?: string }>({})
 export function Providers({ children }: { children: React.ReactNode }) {
   let pathname = usePathname()
   let previousPathname = usePrevious(pathname)
+  const [mounted, setMounted] = useState(false)
+  
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <AppContext.Provider value={{ previousPathname }}>
